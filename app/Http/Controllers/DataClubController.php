@@ -11,11 +11,9 @@ class DataClubController extends Controller
     
     public function index()
     {
-        $skor = DataSkor::get();
+        // $skor = DataSkor::get();
 // Jika skore lebih rendah dari pada lawan berarti tambah 1 kalah
         // dd($skor);
-
-
 
         $club = DataClub::get();
         $skor = DataSkor::all();
@@ -30,6 +28,7 @@ class DataClubController extends Controller
 
     public function store(Request $request)
     {
+        
         $validasi = DataClub::create([
             'nama_klub' => $request->nama_klub,
             'kota_klub' => $request->kota_klub

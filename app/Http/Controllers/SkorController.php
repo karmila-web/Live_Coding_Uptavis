@@ -26,10 +26,10 @@ class SkorController extends Controller
 
     public function store(Request $request)
     {
-        // if (User::where('', $request->id)->exists())
-        // {
-        //  return redirect('tampilan-klasemen/create')->with('error_email', 'User telah terdaftar sebelumnya!');
-        // }
+        if (DataClub::where('nama_club', $request->klub1)->exists())
+        {
+         return redirect('tampilan-klasemen/create')->with('error_email', 'User telah terdaftar sebelumnya!');
+        }
 
         $validasi = DataSkor::create([
             'klub1' => $request->klub1,
